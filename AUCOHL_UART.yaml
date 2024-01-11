@@ -286,12 +286,12 @@ fifos:
   - type: read  
     width: MDW
     depth: 16 
-    register: rxdata
+    register: RXDATA
     data_port: rdata
     control_port: rd
   - type: write
     width: MDW
     depth: 16
-    register: txdata
+    register: TXDATA
     data_port: wdata
     control_port: wr
