@@ -141,7 +141,7 @@ registers:
     offset: 12
     bit_access: no
     write_port: prescaler
-    description: The Prescaler register; used to determine the baud rate. $baud_rate = clock_freq/((PR+1)*16)$.
+    description: The Prescaler register; used to determine the baud rate. $Baud\ rate = Clock\ freq/((PR+1)\times16)$.
   - name: CTRL
     size: 5
     mode: w
