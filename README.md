@@ -1,7 +1,62 @@
 # AUCOHL_UART
 A more complete UART
 
-## Registers
+
+## The Interface
+![Diagram](docs/AUCOHL_UART.svg "Diagram")
+
+### Parameters
+
+| Generic name | Value | Description |
+| ------------ | ----- | ----------- |
+| MDW          | 9     | Maximum data word width |
+| FAW          | 4     | FIFO Address Width; $FIFO\ Depth=2^{FAW}$ |
+| SC           | 8     | Number of Samples |
+| GFLEN        | 8     | Input Glitch Filter Length |
+
+### Ports
+
+| Port name         | Direction | Type           | Description |
+| ----------------- | --------- | -------------- | ----------- |
+| clk               | input     | wire           |             |
+| rst_n             | input     | wire           |             |
+| prescaler         | input     | wire [15:0]    |             |
+| en                | input     | wire           |             |
+| tx_en             | input     | wire           |             |
+| rx_en             | input     | wire           |             |
+| rd                | input     | wire           |             |
+| wr                | input     | wire           |             |
+| wdata             | input     | wire [MDW-1:0] |             |
+| data_size         | input     | wire [3:0]     |             |
+| stop_bits_count   | input     | wire           |             |
+| parity_type       | input     | wire [2:0]     |             |
+| txfifotr          | input     | wire [3:0]     |             |
+| rxfifotr          | input     | wire [3:0]     |             |
+| match_data        | input     | wire [MDW-1:0] |             |
+| timeout_bits      | input     | wire [5:0]     |             |
+| loopback_en       | input     | wire           |             |
+| glitch_filter_en  | input     | wire           |             |
+| tx_empty          | output    | wire           |             |
+| tx_full           | output    | wire           |             |
+| tx_level          | output    | wire [FAW-1:0] |             |
+| tx_level_below    | output    | wire           |             |
+| rdata             | output    | wire [MDW-1:0] |             |
+| rx_empty          | output    | wire           |             |
+| rx_full           | output    | wire           |             |
+| rx_level          | output    | wire [FAW-1:0] |             |
+| rx_level_above    | output    | wire           |             |
+| break_flag        | output    | wire           |             |
+| match_flag        | output    | wire           |             |
+| frame_error_flag  | output    | wire           |             |
+| parity_error_flag | output    | wire           |             |
+| overrun_flag      | output    | wire           |             |
+| timeout_flag      | output    | wire           |             |
+| rx                | input     | wire           |             |
+| tx                | output    | wire           |             |
+
+## I/O Registers
+
+This section covers the I/O register definitions which are the same for the provided bus wrappers.
 
 |Name|Offset|Reset Value|Access Mode|Description|
 |---|---|---|---|---|
